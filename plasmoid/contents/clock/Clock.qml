@@ -8,6 +8,11 @@ Item {
     property int minutes
     property int seconds
 
+
+    Image {
+        x: -18; y: -18
+        source: "bh10.png"
+    }
     //*
     Flipable {
         id: side
@@ -28,14 +33,13 @@ Item {
                         source: "mh0.png"
 
                         transform: Rotation {
-                            origin.x: 68; origin.y: 65;
+                            origin.x: 65; origin.y: 65;
                             angle: clock.minutes * 6
                             Behavior on angle {
                                 SpringAnimation { spring: 2; damping: 0.2; modulus: 360 }
                             }
                         }
                     }
-
                     Image {
                         id: hour
                         x: 3; y: 0
@@ -43,7 +47,7 @@ Item {
                         source: "hh0.png"
 
                         transform: Rotation {
-                            origin.x: 68; origin.y: 65;
+                            origin.x: 65; origin.y: 65;
                             angle: (clock.hours * 30) + (clock.minutes * 0.5)
                             Behavior on angle {
                                 SpringAnimation { spring: 2; damping: 0.2; modulus: 360 }
@@ -56,7 +60,6 @@ Item {
                         source: "cg.png"
                     }
                     MouseArea {
-                        id: mousearea1
                         x: 64; y: 61
                         width: 9; height: 9
                         onClicked: { side.flipped = !side.flipped }
@@ -75,21 +78,20 @@ Item {
                         source: "mh1.png"
 
                         transform: Rotation {
-                            origin.x: 68; origin.y: 65;
+                            origin.x: 65; origin.y: 65;
                             angle: clock.minutes * 6
                             Behavior on angle {
                                 SpringAnimation { spring: 2; damping: 0.2; modulus: 360 }
                             }
                         }
                     }
-
                     Image {
                         x: 3; y: 0
                         smooth: true
                         source: "hh1.png"
 
                         transform: Rotation {
-                            origin.x: 68; origin.y: 65;
+                            origin.x: 65; origin.y: 65;
                             angle: (clock.hours * 30) + (clock.minutes * 0.5)
                             Behavior on angle {
                                 SpringAnimation { spring: 2; damping: 0.2; modulus: 360 }
@@ -103,7 +105,6 @@ Item {
                         source: "cg.png"
                     }
                     MouseArea {
-                        id: mousearea2
                         x: 61; y: 61
                         width: 9; height: 9
                         onClicked: { side.flipped = !side.flipped }
