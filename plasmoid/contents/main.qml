@@ -1,11 +1,13 @@
 import QtQuick 1.1
 import "clock"
 import "kolba"
+
 Rectangle {
     id: main
     width: 478; height: 478 // 189,165
     color: "transparent"
 
+    property alias kolba_st: kolba.state
 
 //*
     Component.onCompleted: {
@@ -26,7 +28,7 @@ Rectangle {
         var sec = date.getSeconds()
 
         if(0 < sec && sec < 51 && sec%2 == 0 ){
-            kolba.w = 75 - sec*1.5
+            kolba.ht = sec*1.5
         }
         if(sec == 51){
             kolba.st = "steam"
@@ -98,12 +100,7 @@ Rectangle {
 
 
 
-    Image {
-        id: image7
-        x: 259
-        y: 325
-        source: "img/porshen_sh.png"
-    }
+
 
     Image {
         id: image5

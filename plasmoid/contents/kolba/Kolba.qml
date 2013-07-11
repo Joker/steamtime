@@ -1,81 +1,63 @@
 import QtQuick 1.1
 
 Item {
-    id: main
+    id: klb
     width: 100; height: 100
 
-    property alias  w: water.y
-    property alias st: main.state
+    property alias ht: shtof.height
+    property alias st: klb.state
 
     Image {
         id: porshen
-        x: 83
-        y: water.y+87
+        x: 83; y: water.y+87
         visible: false
         source: "kolba_porshen.png"
     }
 
-    Image {
-        x: 76
-        y: 0
-        source: "kolba.png"
-    }
-    Image {
-        id: kolba
-        x: 76
-        y: 12
+    Image {           x: 76; y: 0;  source: "kolba.png" }
+    Image {           x: 76; y: 12; source: "kolba_b.png" }
+    Image { id: hvat; x: 0;  y: 27; source: "kolba_hvat.png" }
+
+    Item {
+        id: shtof
+        x: 82; y: 12
+        width: 13; height: 0
+
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 13
         clip: true
-        source: "kolba_b.png"
 
         Image {
             id: water
-            x: 6
-            y: 75
+
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 0
             source: "kolba_water_b.png"
         }
     }
 
-    Image {
-        id: hvat
-        x: 0
-        y: 27
-        source: "kolba_hvat.png"
-    }
     states: [
         State {
             name: "steam"
 
-            PropertyChanges {
-                target: water
-                x: 6
-                y: -84
-            }
+            PropertyChanges { target: porshen; visible: true }
+            PropertyChanges { target: shtof;   height: 75 }
+            PropertyChanges { target: water;   y: -82 }
+            AnchorChanges   { target: water;   anchors.bottom: undefined }
 
-            PropertyChanges {
-                target: porshen
-                visible: true
-
-            }
-            onCompleted: main.state = "start"
+            onCompleted: {klb.state = "start";} // main.kolba_st = "steam"}
         },
         State {
             name: "start"
 
-            PropertyChanges {
-                target: water
-                y: 75
-            }
-            PropertyChanges {
-                target: porshen
-                visible: false
-
-            }
+            PropertyChanges { target: porshen; visible: false }
+            PropertyChanges { target: shtof;   height: 0 }
         }
     ]
     transitions: [
         Transition {
             from: "*"; to: "steam"
-            NumberAnimation { properties: "y "; duration: 5000 }
+            NumberAnimation {target: water; properties: "y"; duration: 5000 }
         }
     ]
 }
