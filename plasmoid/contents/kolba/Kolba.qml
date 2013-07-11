@@ -44,8 +44,8 @@ Item {
             PropertyChanges { target: shtof;   height: 75 }
             PropertyChanges { target: water;   y: -82 }
             AnchorChanges   { target: water;   anchors.bottom: undefined }
-
-            onCompleted: {klb.state = "start";} // main.kolba_st = "steam"}
+            PropertyChanges { target: main;    porshen_st: ""}
+            onCompleted: {klb.state = "start"; }
         },
         State {
             name: "start"

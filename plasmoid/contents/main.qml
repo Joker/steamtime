@@ -7,7 +7,7 @@ Rectangle {
     width: 478; height: 478 // 189,165
     color: "transparent"
 
-    property alias kolba_st: kolba.state
+    property alias porshen_st: porshen.state
 
 //*
     Component.onCompleted: {
@@ -91,7 +91,7 @@ Rectangle {
 
     Image {
         id: image2
-        x: 199
+        x: 192
         y: 298
         source: "img/gear_4.png"
     }
@@ -104,7 +104,7 @@ Rectangle {
 
     Image {
         id: image5
-        x: 221
+        x: 212
         y: 305
         source: "img/dc_1.png"
     }
@@ -122,16 +122,17 @@ Rectangle {
         y: 219
     }
 
+    Porshen {
+        id: porshen
+        x: 259
+        y: 325
+    }
+
     Clock {
         id: clock
         x: 194; y: 191
     }
 
-    Porshen {
-        id: porshen1
-        x: 259
-        y: 325
-    }
 
 
 }
