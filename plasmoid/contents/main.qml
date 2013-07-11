@@ -22,11 +22,18 @@ Rectangle {
 
         clock.hours    = date.getHours()
         clock.minutes  = date.getMinutes()
-        clock.seconds  = date.getSeconds()
+        // clock.seconds  = date.getSeconds()
+        var sec = date.getSeconds()
+
+        if(0 < sec && sec < 51 && sec%2 == 0 ){
+            kolba.w = 75 - sec*1.5
+        }
+        if(sec == 51){
+            kolba.st = "steam"
+        }
     }
 
     Image {
-        id: image1
         x: 162
         y: 178
         visible: false
@@ -113,7 +120,7 @@ Rectangle {
     }
 
     Kolba {
-        id: kolba1
+        id: kolba
         x: 249
         y: 219
     }
@@ -121,6 +128,12 @@ Rectangle {
     Clock {
         id: clock
         x: 194; y: 191
+    }
+
+    Porshen {
+        id: porshen1
+        x: 259
+        y: 325
     }
 
 

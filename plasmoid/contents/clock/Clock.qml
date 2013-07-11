@@ -12,13 +12,33 @@ Item {
     Image {
         x: -18; y: -18
         source: "bh10.png"
+
+        Image {
+            id: image1
+            x: 82
+            y: 19
+            source: "bh11.png"
+        }
+
+        Rectangle {
+            x: 56
+            y: 48
+            width: 17
+            height: 70
+            color: "transparent"
+            clip: true
+
+            Image {
+                x: 1
+                y: 25
+                source: "b11.png"
+            }
+        }
     }
     //*
     Flipable {
         id: side
         width: 132; height: 132
-
-        property bool flipped: false
 
         front: Image {
                     id:  main
@@ -62,7 +82,7 @@ Item {
                     MouseArea {
                         x: 64; y: 61
                         width: 9; height: 9
-                        onClicked: { side.flipped = !side.flipped }
+                        onClicked: { side.state = "up" }
                     }
                 }
 
@@ -107,7 +127,7 @@ Item {
                     MouseArea {
                         x: 61; y: 61
                         width: 9; height: 9
-                        onClicked: { side.flipped = !side.flipped }
+                        onClicked: { side.state = "vverh" }
 
                     }
                 }
@@ -115,25 +135,36 @@ Item {
 
         states: [
             State {
-                name: "front"
-                PropertyChanges { target: rotation; angle: 180 }
-                when: side.flipped
+                name: "down"
+                PropertyChanges { target: rotation; angle: 0 }
             },
             State {
-                name: "back"
-                PropertyChanges { target: rotation; angle: 0 }
-                when: !side.flipped
+                name: "up"
+                PropertyChanges { target: rotation; angle: 180;}
+                onCompleted: side.state = "vniz"
+            },
+            State {
+                name: "vniz"
+                extend: "up"
+                PropertyChanges { target: main_back;y:-137 }
+
+            },
+            State {
+                name: "vverh"
+                PropertyChanges { target: main_back;y:0 }
+                onCompleted: side.state = "down"
             }
         ]
         transform: Rotation {
             id: rotation
             origin.x: side.width/2
-            origin.y: side.height/2
+            origin.y: 0 //side.height/2
             axis.x: 1; axis.y: 0; axis.z: 0     // set axis.y to 1 to rotate around y-axis
             angle: 0    // the default angle
         }
         transitions: Transition {
-            SpringAnimation { target: rotation; property: "angle";  spring: 4; damping: 0.3; modulus: 360 ;mass :5;}// velocity: 490}
+            NumberAnimation { target: rotation; property: "angle";  duration: 900 }
+            NumberAnimation { properties: "x, y "; duration: 900 }
         }
     }
 
