@@ -40,11 +40,12 @@ Item {
         State {
             name: "steam"
 
+            PropertyChanges { target: main;    porshen_st: ""}
             PropertyChanges { target: porshen; visible: true }
             PropertyChanges { target: shtof;   height: 75 }
             PropertyChanges { target: water;   y: -82 }
             AnchorChanges   { target: water;   anchors.bottom: undefined }
-            PropertyChanges { target: main;    porshen_st: ""}
+
             onCompleted: { klb.state = "start"; }
         },
         State {
@@ -57,7 +58,8 @@ Item {
     transitions: [
         Transition {
             from: "*"; to: "steam"
-            NumberAnimation {target: water; properties: "y"; duration: 2000 }
+            NumberAnimation {target: water; properties: "y";      duration: 2000 }
+            NumberAnimation {target: shtof; properties: "height"; duration: 100 }
         }
     ]
 }

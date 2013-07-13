@@ -33,7 +33,7 @@ Item {
 
         Item {
             id: psbar_it
-            x: 9; y: 3
+            y: 3
             width: 40; height: 12
 
             anchors.right: parent.right

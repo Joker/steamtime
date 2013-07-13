@@ -12,26 +12,15 @@ Item {
         x: -18; y: -18
         source: "bh10.png"
 
-        Image {
-            id: image1
-            x: 82
-            y: 19
-            source: "bh11.png"
-        }
+        Image { x: 82; y: 19; source: "bh11.png" }
 
         Rectangle {
-            x: 56
-            y: 48
-            width: 17
-            height: 70
+            x: 56; y: 48
+            width: 17; height: 70
             color: "transparent"
             clip: true
 
-            Image {
-                x: 1
-                y: 25
-                source: "b11.png"
-            }
+            Image { x: 1; y: 25; source: "b11.png" }
         }
     }
     //*
