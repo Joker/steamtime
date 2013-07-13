@@ -8,7 +8,6 @@ Item {
     property int minutes
     property int seconds
 
-
     Image {
         x: -18; y: -18
         source: "bh10.png"

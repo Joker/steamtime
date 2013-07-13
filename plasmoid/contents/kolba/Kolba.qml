@@ -45,7 +45,7 @@ Item {
             PropertyChanges { target: water;   y: -82 }
             AnchorChanges   { target: water;   anchors.bottom: undefined }
             PropertyChanges { target: main;    porshen_st: ""}
-            onCompleted: {klb.state = "start"; }
+            onCompleted: { klb.state = "start"; }
         },
         State {
             name: "start"
@@ -57,7 +57,7 @@ Item {
     transitions: [
         Transition {
             from: "*"; to: "steam"
-            NumberAnimation {target: water; properties: "y"; duration: 5000 }
+            NumberAnimation {target: water; properties: "y"; duration: 2000 }
         }
     ]
 }
