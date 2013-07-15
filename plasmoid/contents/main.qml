@@ -10,7 +10,8 @@ Rectangle {
     color: "transparent"
 
     property alias porshen_st: porshen.state
-    property alias kolba_st:     kolba.state
+    property alias   kolba_st: kolba.state
+    property string     water: "b"
 
     Component.onCompleted: {
         defaultDate()
@@ -26,14 +27,14 @@ Rectangle {
 
         clock.hours    = date.getHours()
         clock.minutes  = date.getMinutes()
-        // clock.seconds  = date.getSeconds()
-        var sec = date.getSeconds()
+        clock.seconds  = date.getSeconds()
+
         porshen.gear_up = clock.minutes * 24;
         bk.gear         = clock.minutes * 24;
 
-        if(sec == 0) { porshen.state = "start"; steam.animation.stop(); steam.currentFrame = -1  }
-        if(sec == 55){ porshen.state = ""; kolba.state = "steam";}
-        if(sec == 57){ steam.animation.start() }
+        if(clock.seconds == 0) { porshen.state = "start"; steam.animation.stop(); steam.currentFrame = -1  }
+        if(clock.seconds == 55){ porshen.state = ""; kolba.state = "steam";}
+        if(clock.seconds == 57){ steam.animation.start() }
 
         //console.log(sec)
     }

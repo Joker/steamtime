@@ -3,6 +3,10 @@ Steam Time
 This plasmoid provides a clock via steampunk interface.  
 It is written entirely in QML + JavaScript.  
 
+
+![Time Keeper](st.png)
+
+
 Graphics in this plasmoid orginate from [Steam Clock](http://customize.org/rainmeter/skins/65669464)  
 
 

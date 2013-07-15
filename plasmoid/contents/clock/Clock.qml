@@ -7,6 +7,7 @@ Item {
     property int hours
     property int minutes
     property int seconds
+    property alias wt: wt.source
 
     Image {
         x: -18; y: -18
@@ -20,7 +21,7 @@ Item {
             color: "transparent"
             clip: true
 
-            Image { x: 1; y: 25; source: "b11.png" }
+            Image { id:wt; x: 1; y: 25; source: "g.png" }
         }
     }
     //*
@@ -31,7 +32,6 @@ Item {
         front: Image {
                     id:  main
                     x: -3
-
                     source: "cf0.png"
 
                     Image {
