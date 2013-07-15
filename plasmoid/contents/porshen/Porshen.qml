@@ -7,6 +7,9 @@ Item {
 
     property alias gear: gear.rotation
     property alias gear_up: gear_up.rotation
+
+    Image { id: image1; x: -52; y: -72; rotation: 45; source: "../clock/mh1.png" }
+
     Image {
         id: gear
         x: -15; y: -35
@@ -44,6 +47,7 @@ Item {
         }
         Image { id: end; x: 9; y: -3; source: "ps.png" }
     }
+
 
 
 

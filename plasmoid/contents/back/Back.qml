@@ -6,8 +6,8 @@ Item {
     property alias gear: gear.rotation
 
     Image { id: br;          x: 80;  y: 43;  source: "br1.png"  }
-    Image { id: shlang_up;   x: 131; y: 0;   source: "shlang_upr.png" }
-    Image { id: shlang_left; x: 7;   y: 49;  source: "shlang_leftr.png" }
+    Image { id: shlang_up;   x: 131; y: 0;   source: "shlang_up.png" }
+    Image { id: shlang_left; x: 7;   y: 49;  source: "shlang_left.png" }
     Image { id: shlang_down; x: 166; y: 137; source: "shlang_downr1.png" }
 
     Image {

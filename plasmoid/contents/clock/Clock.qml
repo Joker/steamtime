@@ -8,20 +8,25 @@ Item {
     property int minutes
     property int seconds
     property alias wt: wt.source
+    property alias shtof: shtof.height
 
     Image {
-        x: -18; y: -18
+        x: -11; y: -18
         source: "bh10.png"
 
-        Image { x: 82; y: 19; source: "bh11.png" }
+        Image { x: 74; y: 18; source: "bh11.png" }
 
         Rectangle {
-            x: 56; y: 48
+            id: shtof
             width: 17; height: 70
             color: "transparent"
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 50
+            anchors.horizontalCenterOffset: -19
+            anchors.horizontalCenter: parent.horizontalCenter
             clip: true
 
-            Image { id:wt; x: 1; y: 25; source: "g.png" }
+            Image { id:wt; x: 1; y: 0; anchors.bottomMargin: 0; anchors.bottom: parent.bottom; source: "g.png" }
         }
     }
     //*
@@ -152,7 +157,7 @@ Item {
         }
         transitions: Transition {
             NumberAnimation { target: rotation; property: "angle";  duration: 900 }
-            NumberAnimation { properties: "x, y "; duration: 900 }
+            NumberAnimation { properties: "x, y "; duration: 1700 }
         }
     }
 

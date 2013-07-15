@@ -92,6 +92,7 @@ Item {
                 clock.wt = "../clock/" + main.water + ".png";
                 if(main.water == "b")    main.water = "g"
                                  else    main.water = "b"
+                clock.shtof = sh
                 ht = sh
 
             }
