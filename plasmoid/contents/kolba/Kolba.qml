@@ -60,6 +60,7 @@ Item {
             name: "steam"
 
             PropertyChanges { target: main;    porshen_st: ""}
+            PropertyChanges { target: porshen.gear_big; angle:-360; }
             PropertyChanges { target: porsh;   visible: true }
             PropertyChanges { target: shtof;   height: 75 }
             PropertyChanges { target: water;   y: -82 }
@@ -110,6 +111,7 @@ Item {
             from: "*"; to: "steam"
             NumberAnimation {target: water; properties: "y";      duration: 2000 }
             NumberAnimation {target: shtof; properties: "height"; duration: 100 }
+            NumberAnimation {target: porshen.gear_big; properties: "angle"; duration: 1850;  easing.type: Easing.InOutBack;}
         },
         Transition {
             NumberAnimation {target: hvat; properties: "x"; duration: 1500; easing.type: Easing.InOutBack; }
