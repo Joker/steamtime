@@ -8,6 +8,11 @@ Item {
     property alias st: klb.state
     property int sh: 0
 
+    Component.onCompleted: {
+        var kolbaState      = plasmoid.readConfig("kolbaState").toString();
+        if (kolbaState.length > 0) { klb.state = kolbaState }
+    }
+
     Image {
         id: porsh
         x: 83; y: water.y+87
@@ -52,6 +57,7 @@ Item {
                 klb.state = "hvat1"
                 ht = sh
             }
+            plasmoid.writeConfig("kolbaState", klb.state);
         }
     }
 

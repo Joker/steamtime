@@ -10,6 +10,11 @@ Item {
     property alias wt: wt.source
     property alias shtof: shtof.height
 
+    Component.onCompleted: {
+        var clockState      = plasmoid.readConfig("clockState").toString();
+        if (clockState.length > 0) { side.state = clockState }
+    }
+
     Image {
         x: -11; y: -18
         source: "bh10.png"
@@ -73,9 +78,9 @@ Item {
                         source: "cg.png"
                     }
                     MouseArea {
-                        x: 64; y: 61
-                        width: 9; height: 9
-                        onClicked: { side.state = "up" }
+                        x: 51; y: 48
+                        width: 35; height: 35
+                        onClicked: { side.state = "up"; plasmoid.writeConfig("clockState", side.state); }
                     }
                 }
 
@@ -118,9 +123,9 @@ Item {
                         source: "cg.png"
                     }
                     MouseArea {
-                        x: 61; y: 61
-                        width: 9; height: 9
-                        onClicked: { side.state = "vverh" }
+                        x: 51; y: 48
+                        width: 35; height: 35
+                        onClicked: { side.state = "vverh"; plasmoid.writeConfig("clockState", side.state); }
 
                     }
                 }
