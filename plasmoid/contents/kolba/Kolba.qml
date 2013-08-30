@@ -10,7 +10,7 @@ Item {
 
     Component.onCompleted: {
         var kolbaState      = plasmoid.readConfig("kolbaState").toString();
-        if (kolbaState.length > 0) { klb.state = kolbaState }
+        if (kolbaState.length > 0) { main.water = kolbaState }
     }
 
     Image {
@@ -57,7 +57,6 @@ Item {
                 klb.state = "hvat1"
                 ht = sh
             }
-            plasmoid.writeConfig("kolbaState", klb.state);
         }
     }
 
@@ -102,6 +101,7 @@ Item {
                 clock.shtof = sh
                 ht = sh
 
+                plasmoid.writeConfig("kolbaState", main.water);
             }
         },
         State {
